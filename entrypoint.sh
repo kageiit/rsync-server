@@ -32,8 +32,7 @@ port = 873
 [volume]
 	uid = root
 	gid = root
-	hosts deny = *
-	hosts allow = ${ALLOW}
+	hosts allow = *
 	read only = false
 	path = ${VOLUME}
 	comment = ${VOLUME} directory
