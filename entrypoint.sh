@@ -3,9 +3,8 @@ set -e
 
 USERNAME=${USERNAME:-user}
 PASSWORD=${PASSWORD:-pass}
-ALLOW=${ALLOW:-192.168.8.0/24 192.168.24.0/24 172.16.0.0/12 127.0.0.1/32}
 VOLUME=${VOLUME:-/data}
-
+RSYNC_PORT=${RSYNC_PORT:-873}
 
 setup_sshd(){
 	if [ -e "/root/.ssh/authorized_keys" ]; then
@@ -27,7 +26,7 @@ pid file = /var/run/rsyncd.pid
 log file = /dev/stdout
 timeout = 300
 max connections = 10
-port = 873
+port = ${RSYNC_PORT}
 
 [volume]
 	uid = root
